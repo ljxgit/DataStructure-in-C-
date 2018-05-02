@@ -1,6 +1,7 @@
 #include <iostream>  
 using namespace std;
-void quickSort(int s[], int, int);
+void quickSort(int s[], int, int); //快排
+void bubbleSort(int arr[], int); //冒泡排序
 
 int main()
 {
@@ -10,16 +11,31 @@ int main()
 	for (k = 0; k<len; k++)
 		cout << array[k] << ",";
 	cout << endl;
-	quickSort(array, 0, len - 1);
+	//quickSort(array, 0, len - 1); // 快速排序
+	bubbleSort(array, len); // 冒泡排序
 	cout << "The sorted arrayare:" << endl;
 	for (k = 0; k<len; k++)
 		cout << array[k] << ",";
 	cout << endl;
-	system("pause");
+	system("pause"); 
 	return 0;
 }
 
-void quickSort(int s[], int l, int r)
+void bubbleSort(int arr[],int length) // 冒泡排序
+{
+	for (int i = 0; i < (length-1); ++i) // 固定第一个游标
+	{
+		for (int j = i + 1; j < length; ++j) // 移动第二个游标，每次和i比较，如果小于i，就交换
+		{
+			if (arr[j] < arr[i])
+			{
+				swap(arr[i],arr[j]);
+			}		
+		}
+	}
+}
+
+void quickSort(int s[], int l, int r) // 快速排序
 {
 	if (l< r)
 	{
